@@ -74,3 +74,34 @@ Creating index on the timestamp field to speed up queries.
 Writing a bash script(datadump.sh) that exports all the rows in the sales_data table to a file named sales_data.sql to automate the export of the daily incremental data into the data warehouse.
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M1_Data_Platform_Architecture_and%20_OLTP_Database/Assignment_result_images/exportdata.png)
 
+## [Module 2: Querying Data in NoSQL Databases](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M2_Querying_Data_in_NoSQL_Databases)
+
+### Scenario
+You are a data engineer at an e-commerce company. Your company needs you to design a data platform that uses MongoDB as a NoSQL database. You will be using MongoDB to store the e-commerce catalogue data.
+
+### Importing data into MongoDB database
+Installing mongoimport and mongoexport. Importing given data(catalog.json) into a database named ‘catalog’ and a collection named ‘electronics’ on mongodb server.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongoimport.png)
+
+List out all databases and collections on mongodb server to check if catalog database and electronics collection are created successfully or not.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/list-dbs.png)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/list-collections.png)
+
+
+##### Creating index on the field ‘type’ for faster queries.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/create-index.png)
+
+### Trying out a few queries to check the imported data:
+Finding the count of laptops.<br />
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongo-query-laptops.png)
+
+Finding the number of smart phones with screen size of 6 inches.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongo-query-mobiles1.png)
+
+Finding the average screen size of smart phones.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongo-query-mobiles2.png)
+
+### Export data from MongoDB database as csv file
+Exporting the fields _id, “type”, “model”, from the ‘electronics’ collection into a file named electronics.csv.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongoexport.png)
