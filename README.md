@@ -195,33 +195,39 @@ Creating a bar chart of Quarterly sales of mobile phones.
 ### Assignment Overview
 The Data Warehouse gets information from several sources including the transactional (OLTP) database. Transactional data from the OLTP database (in this case MySQL) needs to be propagated to the Warehouse on frequent basis. This data movement can be updated using ETL processes.
 
-In this first part of the assignment, you will setup an ETL process using Python to extract new transactional data for each day from the MySQL database, transform it and then load it into the data warehouse in DB2.
+In this first part of the assignment, you will setup an ETL process using Python to extract new transactional data for each day from the MySQL database, transform it and then load it into the data warehouse in Posgresql.
 
-You will begin by preparing the lab environment by starting the MySQL server. You will then create a sales database in MySQL and import the sales.sql into the sales database. Next, you will verify your access to the cloud instance of the IBM DB2 server. You will then be uploading the sales.csv to a table in DB2. To do so you will download the python files that have the template code to connect to MySQL and DB2 databases.
+You will begin by preparing the lab environment by starting the MySQL server. You will then create a sales database in MySQL and import the sales.sql into the sales database. Next, you will verify your access to the cloud instance of the Posgresql server. You will then be uploading the sales.csv to a table in Posgresql. To do so you will download the python files that have the template code to connect to MySQL and Posgresql databases.
 
 The final task requires you to automate the extraction of daily incremental data and load yesterday's data into the data warehouse. You will download the python script from this link and use it as a template to write a python script that automatically loads yesterday's data from the production database into the data warehouse. After performing each task, take a screenshot of the command you used and its output, and name the screenshot.
 
 ### Scenario
-You are a data engineer at an e-commerce company. You need to keep data synchronized between different databases/data warehouses as a part of your daily routine. One task that is routinely performed is the sync up of staging data warehouse and production data warehouse. Automating this sync up will save you a lot of time and standardize your process. You will be given a set of python scripts to start with. You will use/modify them to perform the incremental data load from MySQL server which acts as a staging warehouse to the IBM DB2 which is a production data warehouse. This script will be scheduled by the data engineers to sync up the data between the staging and production data warehouse.
+You are a data engineer at an e-commerce company. You need to keep data synchronized between different databases/data warehouses as a part of your daily routine. One task that is routinely performed is the sync up of staging data warehouse and production data warehouse. Automating this sync up will save you a lot of time and standardize your process. You will be given a set of python scripts to start with. You will use/modify them to perform the incremental data load from MySQL server which acts as a staging warehouse to the Posgresql which is a production data warehouse. This script will be scheduled by the data engineers to sync up the data between the staging and production data warehouse.
 
 ### Automate loading of incremental data into the data warehouse
-Creating the function get_last_rowid() that connect to the DB2 data warehouse and return the last rowid of the table sales_data.
+Creating the function get_last_rowid() that connect to the Posgresql data warehouse and return the last rowid of the table sales_data.
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/get_last_rowid.png)
 
-Creating the function get_latest_records() that connect to MySQL database and return all records later than the given last_rowid from DB2 data warehouse.
+Creating the function get_latest_records() that connect to MySQL database and return all records later than the given last_rowid from Posgresql data warehouse.
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/get_latest_records.png)
 
-Creating the function insert_records() that connect to the DB2 data warehouse and insert all the given records (latest records from MySQL database).
+Creating the function insert_records() that connect to the Posgresql data warehouse and insert all the given records (latest records from MySQL database).
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/insert_records.png)
 
 ### Testing the data synchronization
 Cleaned Data in Posgresql data warehouse before synchronization.
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/images/last_record_before_automation.png)
 
 Running automation.py for data synchronization.
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/synchronization.png)
 
 Data in Postgresql data warehouse after synchronization.
+
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/images/last_record_after_automation.png)
 
 Data have been successfully synchronized.
@@ -241,30 +247,41 @@ In the second exercise, you will get the DAG operational by saving the defined D
 Write a pipeline that analyses the web server log file, extracts the required fields, transforms and load.
 
 ### Creating Data Pipelines using Apache Airflow
+
 Defining the DAG arguments.
-![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_args.png)
+
+ ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_args.png)
 
 Defining the DAG.
-![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_definition.png)
+
+ ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_definition.png)
 
 Creating a task to extract the ip address field from the web server log file into extracted_data.txt file.
-![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/extract_data.png)
+
+ ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/extract_data.png)
 
 Creating a task to filter out all the occurrences of ip address “198.46.149.143” from extracted_data.txt file into transformed_data.txt file.
-![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/transform_data.png)
+
+ ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/transform_data.png)
 
 Creating a task to archive the file transformed_data.txt file into weblog.tar file.
-![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/load_data.png)
+
+ ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/load_data.png)
 
 Defining the task pipeline.
-![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/pipeline.png)
+
+ ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/pipeline.png)
 
 ### Getting the DAG operational
+
 Submitting the DAG.
-![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/submit_dag.png)
+
+ ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/submit_dag.png)
 
 Unpausing the DAG.
-![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/unpause_dag.png)
+
+ ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/unpause_dag.png)
 
 Monitoring the DAG.
-![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_runs.png)
+
+ ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_runs.png)
