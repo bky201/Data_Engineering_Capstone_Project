@@ -129,3 +129,38 @@ Creating tables and relationships amongst created tables, using the ERD design T
 After creating tables and relationships using ERD design tool, generate the schema sql using the tool. Then use the created schema sql to create the schema in a database named staging.
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.1/createschema.png)
 
+## [Module 3.2: Data Warehouse Reporting](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M3_Build_A_Data_Warehouse_and_Reporting)
+
+### Scenario
+You are a data engineer hired by an ecommerce company named SoftCart.com. The company retails download only items like E-Books, Movies, Songs etc. The company has international presence and customers from all over the world. You have designed the schema for the data warehouse in the previous assignment. Data engineering is a team game. Your senior data engineer reviewed your design. Your schema design was improvised to suit the production needs of the company. In this assignment you will generate reports out of the data in the data warehouse.
+
+### Load data into the Data Warehouse
+
+Loading the data provided by the company in csv format into the tables (DimDate, DimCategory, DimCountry, FactSales).
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/DimDate.png)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/DimCategory.png)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/DimCountry.png)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/FactSales.png)
+
+### Queries for data analytics
+Creating and running queries to check if the created data warehouse can create reports.
+
+Grouping sets query using the columns country, category, totalsales. (Total sales per country and Total sales per category)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/groupingsets.png)
+
+Rollup query using the columns year, country, and totalsales. (Total sales per year per country and Total sales per year)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/rollup.png)
+
+Cube query using the columns year, country, and average sales. (Average sales per year per country, Average sales per year, Average sales per country)
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/cube.png)
+
+Creating a materialized query table (MQT) named total_sales_per_country that has the columns country and total_sales to improve the performance of complex queries that operate on very large amounts of data.<br />
+Db2 uses a materialized query table to precompute the results of data that is derived from one or more tables. When you submit a query, Database can use the results that are stored in a materialized query table rather than compute the results from the underlying source tables on which the materialized query table is defined.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/mqt.png)
