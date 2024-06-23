@@ -285,3 +285,44 @@ Unpausing the DAG.
 Monitoring the DAG.
 
  ![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_runs.png)
+
+
+# [Module 6: Big Data Analytics with Spark](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M6_Big_Data_Analytics_with_Spark)
+
+### Assignment Overview
+In this assignment, you will perform a number of tasks to analyze search terms on the e-commerce web server. You will work in Watson Studio within a Jupyter notebook to run your analysis against a CSV file containing the webserver data. You will load this file into a Spark data frame and print the results of your queries against this data set. You will then load a pre-trained sales forecasting model and use this to predict the sales for next year.
+
+### Analyse search terms on the e-commerce web server
+
+Installing and starting spark session. Downloading the search term data set for the e-commerce web server.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/start_spark_session.png) 
+
+Printing the number of rows and columns in the data set.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/shape.png)
+
+Printing the top 5 rows in the data set.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/top5rows.png)
+
+Finding the data type of the column “searchterm”.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/datatype.png)
+
+Finding the number of times, the term “gaming laptop” was searched.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/gaminglaptop.png)
+
+Printing the top 5 frequently used search terms.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/top5terms.png)
+
+Loading the sales forecast model.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/loadmodel.png)
+
+Predicting the sales for the year 2023, using the sales forecast model.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M6_Big_Data_Analytics_with_Spark/Assignment_result_images/forecast.png)
+
+
