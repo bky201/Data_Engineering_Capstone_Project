@@ -1,0 +1,14 @@
+This video will give you an overview
+of the Data Analytics module. In this assignment, you will perform a
+couple of exercises with multiple tasks. But before proceeding with the assignment,
+you will check the lab environment by ensuring that you have access to a cloud instance
+of the IBM Db2 database and IBM Cognos Analytics. After you have access to
+the cloud instance of both, you will download the data from the link provided. The first exercise requires you to
+load data into the data warehouse. You will first import data from the
+downloaded CSV file into a table and then list the first ten rows in the table. In the second exercise, you will create a data source in Cognos that points
+to the table in your IBM Db2 database. In the final exercise, you will create a dashboard by performing tasks such as creating a bar chart of
+Quarterly sales of mobile phones, a pie chart of category-wise
+sales of electronic goods, and a line chart of month-wise
+total sales for a given year. After performing each task, you will take a screenshot of the command you
+used and the output you obtained. You will also give a name to each
+screenshot. Good luck and let’s get started!
