@@ -164,3 +164,28 @@ Creating a materialized query table (MQT) named total_sales_per_country that has
 Db2 uses a materialized query table to precompute the results of data that is derived from one or more tables. When you submit a query, Database can use the results that are stored in a materialized query table rather than compute the results from the underlying source tables on which the materialized query table is defined.
 
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.2/mqt.png)
+
+## [Module 4: Data Analytics & Dashboard Creation](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M4_Data_Analytics_and_Dashboard_Creation)
+
+### Scenario
+You are a data engineer at an e-commerce company. Your company has finished setting up a data warehouse. Now you are assigned the responsibility to design a reporting dashboard that reflects the key metrics of the business.
+
+### Load data into the data warehouse (IBM DB2)
+Importing the data in the given file “ecommerce.csv” into a table named sales_history.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/dataimport.png)
+
+Listing the first 10 rows in the sales_history table to check the loaded data.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/first10rows.png)
+
+### Create dashboard using IBM Cognos
+Creating a line chart of month wise total sales for the year 2020.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/linechart.png)
+
+Creating a pie chart of category wise total sales.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/piechart.png)
+
+Creating a bar chart of Quarterly sales of mobile phones.
+
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/barchart.png)
