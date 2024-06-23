@@ -189,3 +189,82 @@ Creating a pie chart of category wise total sales.
 Creating a bar chart of Quarterly sales of mobile phones.
 
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M4_Data_Analytics_and_Dashboard_Creation/Assignment_result_images/barchart.png)
+
+## [Module 5.1: ETL](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow)
+
+### Assignment Overview
+The Data Warehouse gets information from several sources including the transactional (OLTP) database. Transactional data from the OLTP database (in this case MySQL) needs to be propagated to the Warehouse on frequent basis. This data movement can be updated using ETL processes.
+
+In this first part of the assignment, you will setup an ETL process using Python to extract new transactional data for each day from the MySQL database, transform it and then load it into the data warehouse in DB2.
+
+You will begin by preparing the lab environment by starting the MySQL server. You will then create a sales database in MySQL and import the sales.sql into the sales database. Next, you will verify your access to the cloud instance of the IBM DB2 server. You will then be uploading the sales.csv to a table in DB2. To do so you will download the python files that have the template code to connect to MySQL and DB2 databases.
+
+The final task requires you to automate the extraction of daily incremental data and load yesterday's data into the data warehouse. You will download the python script from this link and use it as a template to write a python script that automatically loads yesterday's data from the production database into the data warehouse. After performing each task, take a screenshot of the command you used and its output, and name the screenshot.
+
+### Scenario
+You are a data engineer at an e-commerce company. You need to keep data synchronized between different databases/data warehouses as a part of your daily routine. One task that is routinely performed is the sync up of staging data warehouse and production data warehouse. Automating this sync up will save you a lot of time and standardize your process. You will be given a set of python scripts to start with. You will use/modify them to perform the incremental data load from MySQL server which acts as a staging warehouse to the IBM DB2 which is a production data warehouse. This script will be scheduled by the data engineers to sync up the data between the staging and production data warehouse.
+
+### Automate loading of incremental data into the data warehouse
+Creating the function get_last_rowid() that connect to the DB2 data warehouse and return the last rowid of the table sales_data.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/get_last_rowid.png)
+
+Creating the function get_latest_records() that connect to MySQL database and return all records later than the given last_rowid from DB2 data warehouse.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/get_latest_records.png)
+
+Creating the function insert_records() that connect to the DB2 data warehouse and insert all the given records (latest records from MySQL database).
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/insert_records.png)
+
+### Testing the data synchronization
+Cleaned Data in Posgresql data warehouse before synchronization.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/images/last_record_before_automation.png)
+
+Running automation.py for data synchronization.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/etl_images/synchronization.png)
+
+Data in Postgresql data warehouse after synchronization.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/images/last_record_after_automation.png)
+
+Data have been successfully synchronized.
+
+## [Module 5.2: Data Pipelines using Apache Airflow](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow)
+
+### Assignment Overview
+Our data platform includes a Big Data repository that is used for analytics using Machine Learning with Apache Spark. This Big Data repository gets data from several sources including the Data Warehouse and the Web Server log. As data from the web server log is logged, it needs to be added to the Big Data system on a frequent basis - making it an ideal process to automate using a data pipeline.
+
+In this second part of the assignment, you will create and run a DAG using Apache Airflow to extract daily data from the web server log, process it, and store it in a format to prepare it for loading into the Big Data platform.
+
+To complete this part of the assignment, you will perform a couple of exercises, but before proceeding with the assignment, you will prepare the lab environment by starting the Apache Airflow and then downloading the dataset from the source (link provided) to the mentioned destination. In the first exercise, you will perform a series of tasks to create a DAG that runs daily. You will create a task that extracts the IP address field from the webserver log file and then saves it into a text file. The next task creation requires you to This task should filter out all the occurrences of ipaddress "198.46.149.143" from text file and save the output to a new text file. In the final task creation, you will load the data by archiving the transformed text file into a TAR file. Before moving on to the next exercise, you will define the task pipeline as per the given details.
+
+In the second exercise, you will get the DAG operational by saving the defined DAG into a PY file. Further, you will submit, unpause and then monitor the DAG runs for the Airflow console. After performing each task, take a screenshot of the command you used and its output, and name the screenshot.
+
+### Scenario
+Write a pipeline that analyses the web server log file, extracts the required fields, transforms and load.
+
+### Creating Data Pipelines using Apache Airflow
+Defining the DAG arguments.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_args.png)
+
+Defining the DAG.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_definition.png)
+
+Creating a task to extract the ip address field from the web server log file into extracted_data.txt file.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/extract_data.png)
+
+Creating a task to filter out all the occurrences of ip address “198.46.149.143” from extracted_data.txt file into transformed_data.txt file.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/transform_data.png)
+
+Creating a task to archive the file transformed_data.txt file into weblog.tar file.
+![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/load_data.png)
+
+Defining the task pipeline.
+![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/pipeline.png)
+
+### Getting the DAG operational
+Submitting the DAG.
+![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/submit_dag.png)
+
+Unpausing the DAG.
+![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/unpause_dag.png)
+
+Monitoring the DAG.
+![alt txt](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M5_ETL_and_Data_Pipelines_using_Apache_Airflow/Assignment_result_images/Data_Pipelines_Apache_AirFlow/dag_runs.png)
