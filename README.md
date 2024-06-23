@@ -105,3 +105,27 @@ Finding the average screen size of smart phones.
 ### Export data from MongoDB database as csv file
 Exporting the fields _id, “type”, “model”, from the ‘electronics’ collection into a file named electronics.csv.
 ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M2_Querying_Data_in_NoSQL_Databases/Assignment_result_images/mongoexport.png)
+
+## [Module 3.1: Data Warehousing](https://github.com/bky201/Data_Engineering_Capstone_Project/tree/main/M3_Build_A_Data_Warehouse_and_Reporting)
+
+### Scenario
+You are a data engineer hired by an ecommerce company named SoftCart.com. The company retails download only items like E-Books, Movies, Songs etc. The company has international presence and customers from all over the world. The company would like to create a data warehouse so that it can create reports like:
+* Total sales per year per country
+* Total sales per month per category
+* Total sales per quarter per country
+* Total sales per category per country
+You will use your data warehousing skills to design and implement a data warehouse for the company.
+
+### Designing a Data Warehouse
+The ecommerce company has provided you the sample data.<br />
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/sample-data.png)<br />
+
+You will start your project by designing a Star Schema for the warehouse by identifying the columns for the various dimension and fact tables in the schema. Name your database as softcart.
+
+Creating tables and relationships amongst created tables, using the ERD design Tool of pgAdmin.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.1/softcartRelationships.png)
+
+### Create the schema
+After creating tables and relationships using ERD design tool, generate the schema sql using the tool. Then use the created schema sql to create the schema in a database named staging.
+![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/M3_Build_A_Data_Warehouse_and_Reporting/Assignment_result_images/assign_3.1/createschema.png)
+
