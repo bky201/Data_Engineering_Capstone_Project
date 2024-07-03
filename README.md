@@ -20,6 +20,7 @@ The Capstone project is divided into 6 Modules:
 
 ### Data Platform Architecture
   ![alt text](https://github.com/bky201/Data_Engineering_Capstone_Project/blob/main/Data-Platform.png)
+  
   This is the data platform architecture of an ecommerce company named SoftCart. SoftCart uses a hybrid architecture, with some of its databases on premises and some on cloud.
 
   ## Tools and Technologies:
